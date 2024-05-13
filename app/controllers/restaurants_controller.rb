@@ -7,6 +7,9 @@ class RestaurantsController < ApplicationController
   def show
     # trouver le restaurant avec l'id correspondant à celui dans l'URL
     @restaurant = Restaurant.find(params[:id])
+
+    # créer un review vide pour le form
+    @new_review = Review.new
   end
 
   def new
