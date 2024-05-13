@@ -9,7 +9,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
 
     # créer un review vide pour le form
-    @new_review = Review.new
+    @review = Review.new
   end
 
   def new
@@ -25,7 +25,7 @@ class RestaurantsController < ApplicationController
     if @restaurant.save
       redirect_to restaurant_path(@restaurant)
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
